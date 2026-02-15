@@ -37,25 +37,35 @@
 
 ![2](https://github.com/Ivan-Shkutov/monitoring-04-ELK/blob/main/img/2.png)
 
-![3](https://github.com/Ivan-Shkutov/monitoring-04-ELK/blob/main/img/3.png)
 
-![4](https://github.com/Ivan-Shkutov/monitoring-04-ELK/blob/main/img/4.png)
+  1. Установил правильный параметр для Elasticsearch
 
-![5](https://github.com/Ivan-Shkutov/monitoring-04-ELK/blob/main/img/5.png)
+    sudo sysctl -w vm.max_map_count=262144
+  
+  2. Создал структуру проекта
+     
+    mkdir -p ~/Templates/ELK/configs
+    cd ~/Templates/ELK
 
-![6](https://github.com/Ivan-Shkutov/monitoring-04-ELK/blob/main/img/6.png)
+  3. Создат файлы конфигурации
+  
+    docker-compose.yml
+    configs/logstash.yml
+    configs/logstash.conf
+    configs/filebeat.yml
 
-![7](https://github.com/Ivan-Shkutov/monitoring-04-ELK/blob/main/img/7.png)
+  4. Запуск стека
 
-![8](https://github.com/Ivan-Shkutov/monitoring-04-ELK/blob/main/img/8.png)
+    docker compose up -d
 
+  5. Через 5 минут проверил
 
+    docker ps
 
+  6. Проверка доступа
 
-
-
-
-
+    Kibana: http://127.0.0.1:5601
+    Elasticsearch: curl -s http://localhost:9200/_cat/indices?v
 
 - - - - - 
 
@@ -76,13 +86,36 @@
 
 ![10](https://github.com/Ivan-Shkutov/monitoring-04-ELK/blob/main/img/10.png)
 
+![3](https://github.com/Ivan-Shkutov/monitoring-04-ELK/blob/main/img/3.png)
+
+![4](https://github.com/Ivan-Shkutov/monitoring-04-ELK/blob/main/img/4.png)
+
+![5](https://github.com/Ivan-Shkutov/monitoring-04-ELK/blob/main/img/5.png)
+
+![6](https://github.com/Ivan-Shkutov/monitoring-04-ELK/blob/main/img/6.png)
+
+![7](https://github.com/Ivan-Shkutov/monitoring-04-ELK/blob/main/img/7.png)
+
+![8](https://github.com/Ivan-Shkutov/monitoring-04-ELK/blob/main/img/8.png)
 
 
+  1. Создание Data Views (index-patterns)
 
+    Открыть Kibana → Stack Management → Data → Data Views
+    Создал два Data View:  
+        logstash	logstash-*	@timestamp
+        docker-logs	docker-logs-*	@timestamp
 
+  2. Просмотр логов (Discover)
 
+    Analytics → Discover
+    Выбрать Data View: logstash или docker-logs
+    Добавить колонки: @timestamp, message
 
-
-
+  3. Все действия
+     
+    Интерфейс Kibana → Discover с таблицей логов
+    Dev Tools → _cat/indices?v с индексами logstash-* и docker-logs-*
+    Созданные Data Views
 
 - - - - - 
