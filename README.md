@@ -82,9 +82,6 @@
 
 ### Решение:
 
-![9](https://github.com/Ivan-Shkutov/monitoring-04-ELK/blob/main/img/9.png)
-
-![10](https://github.com/Ivan-Shkutov/monitoring-04-ELK/blob/main/img/10.png)
 
 ![3](https://github.com/Ivan-Shkutov/monitoring-04-ELK/blob/main/img/3.png)
 
@@ -97,6 +94,10 @@
 ![7](https://github.com/Ivan-Shkutov/monitoring-04-ELK/blob/main/img/7.png)
 
 ![8](https://github.com/Ivan-Shkutov/monitoring-04-ELK/blob/main/img/8.png)
+
+![9](https://github.com/Ivan-Shkutov/monitoring-04-ELK/blob/main/img/9.png)
+
+![10](https://github.com/Ivan-Shkutov/monitoring-04-ELK/blob/main/img/10.png)
 
 
   1. Создание Data Views (index-patterns)
